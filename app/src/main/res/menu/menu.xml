@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/active_engine"
+        android:title="active_engine" />
+    <item
+        android:id="@+id/stu_infor"
+        android:title="stuInformation" />
+    <item
+        android:id="@+id/face_manage"
+        android:title="face manage" />
+</menu>

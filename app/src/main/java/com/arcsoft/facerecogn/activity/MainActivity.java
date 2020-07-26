@@ -8,6 +8,9 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -24,7 +27,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class ChooseFunctionActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private Toast toast = null;
     private static final int ACTION_REQUEST_PERMISSIONS = 0x001;
@@ -35,9 +38,33 @@ public class ChooseFunctionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choose_function);
+        setContentView(R.layout.activity_main);
+    }
+    //菜单处理事
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        //菜单事件处理
+        switch(item.getItemId()){
+            case R.id.active_engine:
+                activeEngine(null);
+                break;
+            case R.id.face_manage:
+              //  jumpToBatchRegisterActivity(null);
+                break;
+            case R.id.stu_infor:
+               // Intent i = new Intent(this,InputActivity.class);
+               // startActivity(i);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
     /**
      * 处理单张图片，显示图片中所有人脸的信息，并且一一比对相似度
      *
@@ -66,7 +93,7 @@ public class ChooseFunctionActivity extends AppCompatActivity {
             public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
                 FaceEngine faceEngine = new FaceEngine();
                 System.out.println("11111111"+faceEngine);
-                int activeCode = faceEngine.active(ChooseFunctionActivity.this, Constants.APP_ID, Constants.SDK_KEY);
+                int activeCode = faceEngine.active(MainActivity.this, Constants.APP_ID, Constants.SDK_KEY);
                 emitter.onNext(activeCode);
             }
         })
@@ -142,4 +169,12 @@ public class ChooseFunctionActivity extends AppCompatActivity {
         }
     }
 
+    public void jumpToFaceRecognizeActivity(View view) {
+    }
+
+    public void btnSignedClick(View view) {
+    }
+
+    public void btnSummaryClick(View view) {
+    }
 }
