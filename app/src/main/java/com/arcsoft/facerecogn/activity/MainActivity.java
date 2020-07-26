@@ -177,6 +177,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnSignedClick(View view) {
+        Intent i = new Intent(this,CheckActivity.class);
+        startActivity(i);
     }
 
     public void btnSummaryClick(View view) {
