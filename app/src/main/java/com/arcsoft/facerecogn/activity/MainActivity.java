@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
               //  jumpToBatchRegisterActivity(null);
                 break;
             case R.id.stu_infor:
-               // Intent i = new Intent(this,InputActivity.class);
-               // startActivity(i);
+                Intent i = new Intent(this,InputActivity.class);
+                startActivity(i);
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -168,13 +168,19 @@ public class MainActivity extends AppCompatActivity {
             toast.show();
         }
     }
+    void checkLibraryAndJump(Class activityClass) {
+        startActivity(new Intent(this, activityClass));
+    }
 
     public void jumpToFaceRecognizeActivity(View view) {
+        checkLibraryAndJump(RegisterAndRecognizeActivity.class);
     }
 
     public void btnSignedClick(View view) {
     }
 
     public void btnSummaryClick(View view) {
+        Intent i = new Intent(this,KaoQinActivity.class);
+        startActivity(i);
     }
 }
