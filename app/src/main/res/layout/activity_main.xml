@@ -15,8 +15,8 @@
         android:layout_alignParentTop="true"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:onClick="jumpToFaceRecognizeActivity"
-        android:text="page_face_recognize"
+        android:onClick="jumpToSingleImageActivity"
+        android:text="单张照片识别"
         android:textColor="#03A9F4"
        />
 
@@ -27,7 +27,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/btnCompare"
         android:onClick="btnSignedClick"
-        android:text="page_selectSigned"
+        android:text="注册CheckActivity"
         android:textColor="#03A9F4"
         />
 
@@ -38,7 +38,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/btnSigned"
         android:onClick="btnSummaryClick"
-        android:text="page_selectSummary"
+        android:text="考勤查询KaoQinActivity"
         android:textColor="#03A9F4"
         />
 

@@ -63,7 +63,7 @@ public class CheckActivity extends AppCompatActivity {
         listview2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
-                final String[] reason = new String[]{"缺寝"};
+                final String[] reason = new String[]{"缺寝","已到"};
 
                 new AlertDialog.Builder(CheckActivity.this)
                         .setItems(reason, new DialogInterface.OnClickListener() {

@@ -40,39 +40,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
     //菜单处理事
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu,menu);
+        inflater.inflate(R.menu.menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         //菜单事件处理
-        switch(item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.active_engine:
                 activeEngine(null);
                 break;
             case R.id.face_manage:
-              //  jumpToBatchRegisterActivity(null);
+                //  jumpToBatchRegisterActivity(null);
                 break;
             case R.id.stu_infor:
-                Intent i = new Intent(this,InputActivity.class);
+                Intent i = new Intent(this, InputActivity.class);
                 startActivity(i);
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
-    /**
-     * 处理单张图片，显示图片中所有人脸的信息，并且一一比对相似度
-     *
-     * @param view
-     */
-    public void jumpToSingleImageActivity(View view) {
-        startActivity(new Intent(this, SingleImageActivity.class));
-    }
+
 
 
     /**
@@ -92,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
                 FaceEngine faceEngine = new FaceEngine();
-                System.out.println("11111111"+faceEngine);
+                System.out.println("11111111" + faceEngine);
                 int activeCode = faceEngine.active(MainActivity.this, Constants.APP_ID, Constants.SDK_KEY);
                 emitter.onNext(activeCode);
             }
@@ -159,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
     private void showToast(String s) {
         if (toast == null) {
             toast = Toast.makeText(this, s, Toast.LENGTH_SHORT);
@@ -168,8 +163,17 @@ public class MainActivity extends AppCompatActivity {
             toast.show();
         }
     }
+
     void checkLibraryAndJump(Class activityClass) {
         startActivity(new Intent(this, activityClass));
+    }
+    /**
+     * 处理单张图片，显示图片中所有人脸的信息，并且一一比对相似度
+     *
+     * @param view
+     */
+    public void jumpToSingleImageActivity(View view) {
+        startActivity(new Intent(this, SingleImageActivity.class));
     }
 
     public void jumpToFaceRecognizeActivity(View view) {
@@ -177,12 +181,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnSignedClick(View view) {
-        Intent i = new Intent(this,CheckActivity.class);
+        Intent i = new Intent(this, CheckActivity.class);
         startActivity(i);
     }
 
     public void btnSummaryClick(View view) {
-        Intent i = new Intent(this,KaoQinActivity.class);
+        Intent i = new Intent(this, KaoQinActivity.class);
         startActivity(i);
     }
 }

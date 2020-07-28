@@ -1,9 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.arcsoft.facerecogn.activity.LoginActivity">
+    android:background="@drawable/background"
+    tools:context=".activity.LoginActivity">
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="人脸识别寝室签到系统"
+        android:textColor="#0E0E0E"
+        android:textSize="18sp"
+        android:layout_marginTop="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+       />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/textView5"
+        app:srcCompat="@drawable/avtor" />
+    <EditText
+        android:id="@+id/edtpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@android:drawable/ic_menu_directions"
+        android:ems="10"
+        android:hint="密码"
+        android:inputType="textPassword"
+        android:textSize="16sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/imageView"/>
 
-</android.support.constraint.ConstraintLayout>
+
+
+    <EditText
+        android:id="@+id/edtUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@android:drawable/ic_menu_my_calendar"
+        android:ems="10"
+        android:hint="用户名"
+        android:inputType="textPersonName"
+        android:textSize="16sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/edtpassword" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="#FAFBFB"
+        android:onClick="btnLoginClick"
+        android:text="登录"
+        android:textColor="#131313"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/edtUsername" />
+</RelativeLayout>
